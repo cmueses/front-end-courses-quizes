@@ -11,12 +11,17 @@ function makeLine(length) {
     return line + "\n";
 }
 
-// takes a param to determine the times
+// buildTriangle takes one parameter to define how many iterations
+// Then it builds the triangle in a variable of the same name 
+//and returns the triangle already built.
 function buildTriangle(x) {
+    var triangle = "*";
     for(var y = 1; y <= x; y++) {
-         console.log(makeLine(y));
+         triangle += makeLine(y);
     }
+
+    return triangle;
 }
 
-buildTriangle(10);
+console.log(buildTriangle(10));
 
