@@ -1,12 +1,3 @@
-/*
- * Programming Quiz: Nested Numbers (6-10)
- *
- *   - The `numbers` variable is an array of arrays.
- *   - Use a nested `for` loop to cycle through `numbers`.
- *   - Convert each even number to the string "even"
- *   - Convert each odd number to the string "odd"
- */
-
 var numbers = [
     [243, 12, 23, 12, 45, 45, 78, 66, 223, 3],
     [34, 2, 1, 553, 23, 4, 66, 23, 4, 55],
@@ -20,23 +11,19 @@ var numbers = [
     [76, 7, 9, 6, 3, 73, 77, 100, 56, 100]
 ];
 
-//Function that takes a parameter and returns if the number is even or odd
-function evenOdd(num){
-    if(num % 2 === 0){
-        num = "even";
-    }else {
-        num = "odd";
-    }
-return num;    
-};
 
 //Goes through the array, calls the evenOdd function and chnages the value
 //to "even" or "odd" in the array.
-numbers.map(function(){
-    for(var x = 0; x < numbers.length - 1; x++){
-        for(var y = 0; y < numbers[x].length - 1; y++){
-            
-            console.log(evenOdd(numbers[x][y]));
+// outer loop applies to outer array
+for (var i=0, len=numbers.length; i<len; i++) {
+    // inner loop applies to sub-arrays
+    for (var j=0, len2=numbers[i].length; j<len2; j++) {
+        // accesses each element of each sub-array in turn
+        if((numbers[i][j] % 2) === 0){
+          numbers[i][j] = "even";
+        } else {
+          numbers[i][j] = "odd";
         }
+        console.log( numbers[i][j] ); 
     }
-});
+}
